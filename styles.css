@@ -1,0 +1,99 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to bottom, #2c3e50, #4ca1af); /* Darker gradient background */
+    background-image: url('https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTAzL3JtNjA2ZGVzaWduLXJlbWl4LWJnLTEyLWEuanBn.jpg'); /* Heart-themed background image */
+    background-size: cover;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    text-align: center;
+    color: #f0f0f0; /* Light gray text color for contrast */
+    text-shadow: 2px 2px 4px #000000;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: #f0f0f0; /* Light gray text color */
+}
+
+.button-container {
+    position: relative;
+}
+
+button {
+    font-size: 1.5em;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transform-origin: center;
+    transition: transform 0.3s ease;
+    
+}
+
+#yes-button {
+    transform-origin: center;
+    background-color: #ff6f61;
+    color: white;
+}
+
+#no-button {
+    transform-origin: center;
+    background-color: #ffa726;
+    color: white;
+    position: absolute;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Appreciation Page Styles */
+.container {
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+.button-container {
+    margin-top: 30px;
+}
+
+.button {
+    font-size: 1.5em;
+    padding: 10px 20px;
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    opacity: 0.8;
+}
+
