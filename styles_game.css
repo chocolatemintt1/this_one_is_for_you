@@ -7,6 +7,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
     height: 100vh;
     background-color: #f0f0f0; /* Light gray background for the body */
     background-image: url('https://www.shutterstock.com/image-photo/perpendicular-aerial-view-green-grass-600nw-2226282587.jpg'); /* Background image for the entire page */
@@ -15,14 +16,27 @@ body {
 }
 
 /* Canvas Styles */
-canvas {
+#gameCanvas {
     border: 1px solid #000;
-    display: block;
     background-color: white; /* Solid white background for the canvas */
-    margin: 20px;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
 }
 
-/* Difficulty Modal Styles */
+/* Responsive adjustments for different screen sizes */
+@media (max-width: 600px) {
+    #gameCanvas {
+        height: 80vh; /* Adjust height for smaller screens */
+    }
+}
+
+@media (max-width: 400px) {
+    #gameCanvas {
+        height: 60vh; /* Further adjust height for very small screens */
+    }
+}
+
+/* Modal Styles */
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -32,22 +46,23 @@ canvas {
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    background-color: rgba(0, 0, 0, 0.4); /* Black with opacity */
 }
 
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 15% auto; /* Center the modal */
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 80%; /* Width relative to screen size */
     max-width: 500px; /* Maximum width of the modal */
     text-align: center;
     border-radius: 8px;
 }
 
-button {
-    background-color: #4CAF50;
+/* Button Styles */
+button, #retryBtn, #reselectDifficultyBtn {
+    background-color: #4CAF50; /* Default button color */
     color: white;
     border: none;
     padding: 10px 20px;
@@ -60,26 +75,17 @@ button {
     border-radius: 5px;
 }
 
-button:hover {
+button:hover, #retryBtn:hover {
     background-color: #45a049;
 }
 
-#retryBtn {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 5px;
+#reselectDifficultyBtn {
+    background-color: #f44336; /* Red background for difficulty change button */
+    margin-top: 20px;
 }
 
-#retryBtn:hover {
-    background-color: #45a049;
+#reselectDifficultyBtn:hover {
+    background-color: #e53935;
 }
 
 /* Difficulty Display Styles */
@@ -92,21 +98,15 @@ button:hover {
     font-weight: bold;
 }
 
-/* Change Difficulty Button Styles */
-#reselectDifficultyBtn {
-    background-color: #f44336; /* Red background */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin-top: 20px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-#reselectDifficultyBtn:hover {
-    background-color: #e53935;
+/* Modal Specific Styles */
+#difficultyModal, #gameOverModal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
