@@ -1,0 +1,112 @@
+/* Basic Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f0f0; /* Light gray background for the body */
+    background-image: url('https://www.shutterstock.com/image-photo/perpendicular-aerial-view-green-grass-600nw-2226282587.jpg'); /* Background image for the entire page */
+    background-size: cover; /* Ensure the background image covers the entire page */
+    background-position: center;
+}
+
+/* Canvas Styles */
+canvas {
+    border: 1px solid #000;
+    display: block;
+    background-color: white; /* Solid white background for the canvas */
+    margin: 20px;
+}
+
+/* Difficulty Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 500px; /* Maximum width of the modal */
+    text-align: center;
+    border-radius: 8px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#retryBtn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#retryBtn:hover {
+    background-color: #45a049;
+}
+
+/* Difficulty Display Styles */
+#difficultyDisplay {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+#finalScore {
+    font-weight: bold;
+}
+
+/* Change Difficulty Button Styles */
+#reselectDifficultyBtn {
+    background-color: #f44336; /* Red background */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#reselectDifficultyBtn:hover {
+    background-color: #e53935;
+}
