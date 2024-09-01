@@ -1,8 +1,5 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
-canvas.width = 800;
-canvas.height = 400;
-
 let chicken = {
     x: 50,
     y: canvas.height - 70,
@@ -11,7 +8,6 @@ let chicken = {
     speed: 5,
     dx: 0,
 };
-
 let eggs = [];
 let obstacles = [];
 let score = 0;
@@ -19,7 +15,7 @@ let gameRunning = false;
 let letterSpeed = 1;
 let obstacleSpeed = 2;
 let difficulty = 'None';
-let gameLoopId; // Store the requestAnimationFrame ID
+let gameLoopId;
 
 const eggImage = new Image();
 eggImage.src = 'egg.png'; // Path to your egg image
@@ -88,25 +84,21 @@ function updateEggs() {
     eggs.forEach((egg, index) => {
         egg.y += egg.speed;
 
-        // Remove egg if it goes off-screen and generate a new one
         if (egg.y > canvas.height) {
             eggs.splice(index, 1);
             generateEgg();
         }
 
-        // Collision detection with chicken
         if (
             egg.y + egg.height > chicken.y &&
             egg.x + egg.width > chicken.x &&
             egg.x < chicken.x + chicken.width
         ) {
-            // Egg collected
             eggs.splice(index, 1);
             score++;
-            generateEgg(); // Generate a new egg when one is collected
+            generateEgg();
         }
 
-        // Draw each egg
         drawEgg(egg);
     });
 }
@@ -125,13 +117,11 @@ function updateObstacles() {
     obstacles.forEach((obstacle, index) => {
         obstacle.y += obstacle.speed;
 
-        // Remove obstacle if it goes off-screen and generate a new one
         if (obstacle.y > canvas.height) {
             obstacles.splice(index, 1);
             generateObstacle();
         }
 
-        // Smaller hitbox collision detection with chicken
         const hitbox = {
             x: obstacle.x + (obstacle.width - snakeHitboxSize.width) / 2,
             y: obstacle.y + (obstacle.height - snakeHitboxSize.height) / 2,
@@ -144,11 +134,9 @@ function updateObstacles() {
             hitbox.x + hitbox.width > chicken.x &&
             hitbox.x < chicken.x + chicken.width
         ) {
-            // Collision with snake
             gameOver();
         }
 
-        // Draw each obstacle
         drawObstacle(obstacle);
     });
 }
@@ -175,7 +163,6 @@ function resetGame() {
     gameRunning = true;
     difficultyText.textContent = difficulty;
 
-    // Generate initial eggs and obstacles
     for (let i = 0; i < 3; i++) {
         generateEgg();
         generateObstacle();
@@ -197,6 +184,17 @@ function gameLoop() {
 function stopGameLoop() {
     cancelAnimationFrame(gameLoopId);
 }
+
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+
+// Call resizeCanvas when the window is resized
+window.addEventListener('resize', resizeCanvas);
+
+// Initialize canvas size on page load
+resizeCanvas();
 
 document.getElementById('easyBtn').addEventListener('click', function() {
     difficulty = 'Easy';
@@ -239,11 +237,6 @@ reselectDifficultyBtn.addEventListener('click', function() {
     difficultyModal.style.display = 'block';
     gameOverModal.style.display = 'none'; // Hide game over modal
 });
-
-// Show difficulty selection modal on page load
-window.onload = function() {
-    difficultyModal.style.display = 'block';
-};
 
 document.addEventListener('keydown', keyDown);
 document.addEventListener('keyup', keyUp);
