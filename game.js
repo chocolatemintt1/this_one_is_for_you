@@ -18,7 +18,7 @@ let difficulty = 'None';
 let gameLoopId;
 
 const eggImage = new Image();
-eggImage.src = 'egg.png'; // Path to your egg image
+eggImage.src = 'egg.png'; 
 
 const chickenImage = new Image();
 chickenImage.src = 'chicken.png'; // Path to your chicken image
